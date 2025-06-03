@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Giỏ hàng của bạn</h2>
+<ul>
+    {% for item in cart %}
+        <li>{{ item.name }} - {{ "{:,.0f}".format(item.price) }} VND</li>
+    {% endfor %}
+</ul>
+<p><strong>Tổng cộng:</strong> {{ "{:,.0f}".format(total) }} VND</p>
+<a href="{{ url_for('checkout') }}">Thanh toán</a>
+{% endblock %}
