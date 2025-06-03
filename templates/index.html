@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Sản phẩm</h2>
+<ul>
+    {% for product in products %}
+        <li>
+            {{ product.name }} - {{ "{:,.0f}".format(product.price) }} VND
+            <a href="{{ url_for('add_to_cart', product_id=product.id) }}">[Thêm]</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
